@@ -3,5 +3,9 @@ tasks:
     command: cat /etc/os-release
   - name: Update
     init: sudo apt-get update
-  - name: Install Dependencies
+  - name: Install Tauri Pre-Requisites
     init: sudo apt-get install libwebkit2gtk-4.0-dev build-essential curl wget libssl-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev
+  - name: Setup Tauri
+    init: cargo install tauri-cli
+  - name: Install Project Dependencies
+    init: pnpm add -g pnpm && pnpm install
